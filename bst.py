@@ -90,7 +90,7 @@ class BinaryTree(object):
 def main():
 	test = BinaryTree(4)
 	for i in [2,7,1,3,6,9]: test.insert(test,i)
-	for p in test.preorder(test): print p
+	for p in test.inorder(test): print p
 
 if __name__ == '__main__':
 
