@@ -91,6 +91,8 @@ def main():
 	test = BinaryTree(4)
 	for i in [2,7,1,3,6,9]: test.insert(test,i)
 	for p in test.postorder(test): print p
+	test.remove(test,2)
+	for p in test.preorder(test): print p
 
 if __name__ == '__main__':
 
