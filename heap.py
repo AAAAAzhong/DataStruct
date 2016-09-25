@@ -19,7 +19,7 @@ class Heap(object):
 
 				if inlist[j] > inlist[k]:
 					inlist[j], inlist[k] = inlist[k], inlist[j]
-
+				
 
 	def _normal_maxheap(self,inlist):
 		n = len(inlist)
@@ -34,7 +34,7 @@ class Heap(object):
 
 	def _sink_min(self,inlist,root):
 		n = len(inlist)
-		self.c += 1	
+			
 
 		if root*2+1 < n:
 			k = root*2+2 if root*2+2 < n and inlist[root*2+2] < inlist[root*2+1] else root*2+1
@@ -85,6 +85,28 @@ class Heap(object):
 
 		return self._heaplist
 
+	def minheap_insert(self,data):
+		self._heaplist.append(data)
+	
+		n = len(self._heaplist)
+		
+		k = n
+		while k != 0:
+			k = k/2
+			self._sink_min(self._heaplist,k)
+
+		
+
+	def maxheap_insert(self,data):
+		self._heaplist.append(data)
+
+		n = len(self._heaplist)
+		
+		k = n
+		while k!=0:
+			k = k/2
+			self._sink_max(self._heaplist,k)
+
 def main():
 	inlist = [i for i in xrange(10,1,-1)]
 	test = Heap(inlist)
@@ -105,7 +127,11 @@ def main():
 	for i in test.fast_maxheap:
 		print i
 
-	print "count",test.c
+	test.minheap_insert(11)
+	print test.minheap
+
+	test.maxheap_insert(11)
+	print test.maxheap
 
 if __name__ == '__main__':
 
